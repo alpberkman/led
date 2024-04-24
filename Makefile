@@ -1,6 +1,6 @@
 
 TARGET := led
-MAIN ?= $(CURDIR)/main.c
+MAIN := $(CURDIR)/main.c
 
 export TARGET
 export MAIN
@@ -9,11 +9,11 @@ export MAIN
 CC ?= gcc
 CFLAGS ?= -Wall -Wextra -O2 -Wno-unused-variable
 
-BASE_DIR ?= $(CURDIR)
-CSRC_DIR ?= $(BASE_DIR)/csrc
-BUILD_DIR ?= $(BASE_DIR)/build
-BIN_DIR ?= $(BASE_DIR)/bin
-EXTERNALS_DIR := $(BASE_DIR)/externals
+BASE_DIR := $(CURDIR)
+CSRC_DIR := $(BASE_DIR)/csrc
+BUILD_DIR := $(BASE_DIR)/build
+BIN_DIR := $(BASE_DIR)/bin
+EXTERNALS_DIR := $(CURDIR)/externals
 
 export CC
 export CFLAGS

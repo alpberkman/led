@@ -28,5 +28,5 @@ $(BUILD_DIR)/%.c.o: %.c
 	$(CC) $(CFLAGS) -o $@ $^ -c
 
 clean:
-	-$(MAKE) -C $(SUBDIRS) clean
+#	-$(MAKE) -C $(SUBDIRS) clean
 	-rm -r $(BUILD_DIR)
