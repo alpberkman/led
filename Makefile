@@ -26,7 +26,7 @@ export EXTERNALS_DIR
 
 
 
-.PHONY: clean binary run
+.PHONY: clean run
 
 all: binary
 
