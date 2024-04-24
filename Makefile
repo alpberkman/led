@@ -9,10 +9,11 @@ export MAIN
 CC ?= gcc
 CFLAGS ?= -Wall -Wextra -O2 -Wno-unused-variable
 
-BASE_DIR := $(CURDIR)
-CSRC_DIR := $(BASE_DIR)/csrc
-BUILD_DIR := $(BASE_DIR)/build
-BIN_DIR := $(BASE_DIR)/bin
+BASE_DIR ?= $(CURDIR)
+CSRC_DIR ?= $(BASE_DIR)/csrc
+BUILD_DIR ?= $(BASE_DIR)/build
+BIN_DIR ?= $(BASE_DIR)/bin
+EXTERNALS_DIR := $(BASE_DIR)/externals
 
 export CC
 export CFLAGS
@@ -21,13 +22,13 @@ export BASE_DIR
 export CSRC_DIR
 export BUILD_DIR
 export BIN_DIR
+export EXTERNALS_DIR
 
 
 
-.PHONY: clean run
+.PHONY: clean binary run
 
-all: run
-
+all: binary
 
 run: binary
 	$(BIN_DIR)/led $(shell whereis cat | cut -d' ' -f2)
@@ -36,7 +37,10 @@ binary:
 	mkdir -p $(BUILD_DIR)
 	mkdir -p $(BIN_DIR)
 	$(MAKE) -C $(CSRC_DIR)
+#	$(MAKE) -C $(EXTERNALS_DIR)
+
 
 clean:
 #	-$(MAKE) -C $(CSRC_DIR) clean
+#	-$(MAKE) -C $(EXTERNALS_DIR) clean
 	-rm -r $(BUILD_DIR)
